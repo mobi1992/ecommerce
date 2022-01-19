@@ -5,43 +5,13 @@ import { Navbar, Nav, InputGroup, FormControl, Form, Container, Offcanvas } from
 import './index.css'
 import { BrowserRouter as Router, Routes, Route, Link, Redirect } from 'react-router-dom'
 const NavBar = () => {
+    // Reload the products page to avoid any mishandling, as the code is sorting thr products array in multiple places, that is why we have to reload the page to avoid any error, when the page reloads the product array becomes unsorted again, but if the array can be sorted on the backend then no need to reload the pages
+    const reloadShopPage = () => {
+        window.location.reload()
+    }
     return (
         <div>
             <div className='nav-display-on-large-screens'>
-                {/* <Navbar> */}
-                {/* <Nav> */}
-                {/* <div style = {{display : 'inline'}}>
-                    <Nav className="justify-content-right">
-                        <Nav.Item>
-                        <Nav.Link>
-                            Link1
-                        </Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                        <Nav.Link>
-                            Link2
-                        </Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-                    </div>
-                    <div style = {{display : 'inline'}}>
-                    <Nav className="justify-content-center">
-                        <Nav.Item>
-                        <Navbar.Brand>
-                            Brand
-                        </Navbar.Brand>
-                        </Nav.Item>
-                    </Nav>
-                    </div>
-                    <div style = {{display : 'inline'}}>
-                    <Nav className="justify-content-end">
-                        <Nav.Item>
-                        <Nav.Link>
-                            Link3
-                        </Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-                    </div> */}
                 <div style={{ display: 'flex' }}>
                     <div style={{ flex: '1' }}>
                         <div style={{ paddingTop: '3vh', paddingBottom: '3vh', display: 'flex', justifyContent: 'left' }}>
@@ -71,7 +41,7 @@ const NavBar = () => {
                         <Nav.Link className='nav'>
                             SIGN IN
                         </Nav.Link>
-                        <Nav.Link className='nav'>
+                        <Nav.Link onClick = {reloadShopPage}  className='nav'>
                             <Link style = {{textDecoration: 'none'}} to='/products'>
                                 SHOP
                             </Link>
@@ -107,7 +77,7 @@ const NavBar = () => {
                                 <Nav className="justify-content-end flex-grow-1 pe-3">
                                     <Nav.Link style={{ paddingBottom: '2vh' }}>REGISTER</Nav.Link>
                                     <Nav.Link style={{ paddingBottom: '3vh' }}>SIGN IN</Nav.Link>
-                                    <Nav.Link style={{ paddingBottom: '3vh' }}> <Link style = {{textDecoration: 'none'}} to='/products'>
+                                    <Nav.Link onClick = {reloadShopPage} style={{ paddingBottom: '3vh' }}> <Link style = {{textDecoration: 'none'}} to='/products'>
                                         SHOP
                                     </Link></Nav.Link>
                                 </Nav>
