@@ -3,9 +3,9 @@ import Announcement from '../../@components/announcement'
 import Footer from '../../@components/footer'
 import NavBar from '../../@components/navBar'
 import NewsLetter from '../../@components/newsLetter'
-import Products from '../../@components/products'
 import { popularProducts } from '../../data'
 import { useNavigate } from "react-router-dom";
+import ItemCard from '../../@components/itemCard'
 const LowToHighSortedProducts = () => {
     const navigate = useNavigate()
     // reload the previous page when backbutton is clicked
@@ -59,7 +59,7 @@ const LowToHighSortedProducts = () => {
                     <option>high to low</option>
                 </select>
             </span></div>
-            <Products />
+            <ItemCard />
             <NewsLetter />
             <Footer />
         </>

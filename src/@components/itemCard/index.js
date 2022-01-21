@@ -1,17 +1,17 @@
 import React from 'react'
 import { popularProducts } from '../../data'
-import Product from './product'
+import Item from './item'
 
-const Products = () => {
+const ItemCard = () => {
     return (
         <div className = 'row justify-content-left'>
             {popularProducts.map(product => {
                 return (
-                    <Product product = {product} />
+                    <Item product = {product} />
                 )
             })}
         </div>
     )
 }
 
-export default Products
+export default ItemCard

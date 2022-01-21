@@ -2,7 +2,10 @@ import { FavoriteBorderOutlined, SearchOutlined, ShoppingCartOutlined } from '@m
 import React from 'react'
 import { Col, Card, Image } from 'react-bootstrap'
 import './index.css'
-const Product = ({ product }) => {
+import { useNavigate, Link } from "react-router-dom";
+
+const Item = ({ product }) => {
+    const navigate = useNavigate()
     return (
         <Col lg='3' md='4' sm='6' xs='6'>
             <Card className='border-0 mt-2'>
@@ -10,9 +13,11 @@ const Product = ({ product }) => {
                         <Image src={product.img} className='card-img img-responsive' />
                         <div className='display-on-small-screens'>
                             <div className='product-info-container'>
+                            <Link to = {`/${product.id}`}>
                                 <div className='icon'>
                                     <ShoppingCartOutlined fontSize='small' />
                                 </div>
+                            </Link>
                                 <div className='icon'>
                                     <FavoriteBorderOutlined fontSize='small' />
                                 </div>
@@ -23,9 +28,11 @@ const Product = ({ product }) => {
                         </div>
                         <div className='display-on-medium-screens'>
                             <div className='product-info-container'>
+                            <Link to = {`/${product.id}`}>
                                 <div className='icon'>
                                     <ShoppingCartOutlined />
                                 </div>
+                            </Link>
                                 <div className='icon'>
                                     <FavoriteBorderOutlined />
                                 </div>
@@ -36,9 +43,11 @@ const Product = ({ product }) => {
                         </div>
                         <div className='display-on-large-screens'>
                             <div className='product-info-container'>
+                                <Link to = {`/${product.id}`}>
                                 <div className='icon'>
-                                    <ShoppingCartOutlined fontSize='large' />
+                                    <ShoppingCartOutlined fontSize='large'/>
                                 </div>
+                                </Link>
                                 <div className='icon'>
                                     <FavoriteBorderOutlined fontSize='large' />
                                 </div>
@@ -55,4 +64,4 @@ const Product = ({ product }) => {
     )
 }
 
-export default Product
+export default Item

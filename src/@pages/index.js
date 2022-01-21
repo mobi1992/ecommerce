@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link, Redirect } from 'react-ro
 import HighToLowSortedProducts from './highToLowSortedProducts'
 import Home from './homePage'
 import LowToHighSortedProducts from './lowToHighSortedProducts.js'
+import ProductPage from './productPage'
 import Shop from './shop'
 
 const MainApp = () => {
@@ -14,6 +15,7 @@ const MainApp = () => {
                     <Route exact path='/products' element = {<Shop />}/>
                     <Route exact path='/products/low-to-high-prices' element = {<LowToHighSortedProducts />}/>
                     <Route exact path='/products/high-to-low-prices' element = {<HighToLowSortedProducts />}/>
+                    <Route exact path = '/:id' exact element = {<ProductPage />}/>
                 </Routes>
             </Router>
         </div>
